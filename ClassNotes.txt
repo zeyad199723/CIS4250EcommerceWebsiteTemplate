@@ -1,0 +1,14 @@
+﻿Select * From Category Where Parent = 0
+Select * From Category Where Parent = Main CategoryID (e.g., 1, 2 ,3)
+
+
+Category.aspx?MainCategoryID=<%# CStr(Eval("CategoryID")) %>&MainCategoryName=<%# Trim(Eval("CategoryName")) %>
+
+Category.aspx?MainCategoryID=<%# Request.Querystring("MainCategoryID") %>&MainCategoryName=<%# Request.Querystring("MainCategoryID") %>&SubCategoryId=<%# val("CategoryID") %>&SubCategoryName=<%# Trim(val("CategoryName")) %>
+
+For search
+   1a. If there is only one word, consider this word as the product no.
+   1b. Check the Product to see if there is a match.
+   1b1. If there is, rediect to ProductDetails.aspx.
+   1b2a. If there is no match, Redirect to Category.aspx.
+   1b2b. Check to see if there match(es) in the ProductName using Like statement.
